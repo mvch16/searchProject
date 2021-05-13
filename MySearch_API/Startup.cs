@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MySearch_API.ServiceInstaller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,15 @@ namespace MySearch_API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MySearch_API", Version = "v1" });
             });
+
+            typeof(Startup).
+                Assembly.
+                ExportedTypes.
+                Where(type => typeof(Installer_Interface).IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface)
+                .Select(Activator.CreateInstance)
+                .Cast<Installer_Interface>()
+                .ToList()
+                .ForEach(inst => inst.InstallServices(services, Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +55,7 @@ namespace MySearch_API
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("AppCORSPolicy");
 
             app.UseRouting();
 
