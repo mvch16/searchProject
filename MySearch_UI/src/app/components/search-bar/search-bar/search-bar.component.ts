@@ -10,8 +10,8 @@ export class SearchBarComponent implements OnInit {
   constructor(private searchController: SearchController) {}
 
   ngOnInit(): void {
-    this.searchController.GetDummyData().subscribe(data =>{
-      console.log(data)
-    })
+    this.searchController.GetDummyData('test', 5).subscribe((data) => {
+      console.log(data);
+    });
   }
 }

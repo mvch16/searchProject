@@ -9,7 +9,10 @@ import { CommonService } from '../services/common.services';
 export class SearchController {
   constructor(private commonService: CommonService) {}
 
-  GetDummyData() {
-    return this.commonService.SearchService.GetDummyData();
+  GetDummyData(querySearch: string, pageNumber: number) {
+    return this.commonService.SearchService.GetDummyData(
+      querySearch,
+      pageNumber
+    );
   }
 }
