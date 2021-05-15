@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchController } from '../../../controllers/search.controller';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,11 +7,16 @@ import { SearchController } from '../../../controllers/search.controller';
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-  constructor(private searchController: SearchController) {}
+
+  public querySearch: string = "";
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.searchController.GetDummyData('test', 5).subscribe((data) => {
-      console.log(data);
-    });
   }
+
+  search = () => {
+    this.router.navigate(["search", this.querySearch])
+  }
+
 }
