@@ -6,9 +6,10 @@ namespace MySearch_API.Services
 {
     public class RequestService : IRequestService
     {
+        private string BASESOLRURL = "http://localhost:8983/solr/techproducts/";
 
         public RequestService() { }
-        public string GetRequest(string URI)
+        public string ExecuteRequest(string URI)
         {
             WebRequest webRequest = HttpWebRequest.Create(URI);
             HttpWebRequest httpWebRequest = (HttpWebRequest)webRequest;
@@ -17,6 +18,16 @@ namespace MySearch_API.Services
             WebResponse webResponse = webRequest.GetResponse();
             StreamReader streamReader = new StreamReader(webResponse.GetResponseStream());
             return streamReader.ReadToEnd();
+        }
+
+        public string BaseSolrQueryURL()
+        {
+            return BASESOLRURL + "select?q=";
+        }
+
+        public string AllResultsSolrQueryURL()
+        {
+            return this.BaseSolrQueryURL() + "*%3A*";
         }
     }
 }

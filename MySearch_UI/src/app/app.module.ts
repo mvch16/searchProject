@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HomeComponent } from './components/home/home.component';
+import { CompanyComponent } from './components/search-results/company/company.component';
+import { ProductComponent } from './components/search-results/product/product.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { HomeComponent } from './components/home/home.component';
     SearchBarComponent,
     SearchResultsComponent,
     HomeComponent,
+    CompanyComponent,
+    ProductComponent,
   ],
   imports: [BrowserModule, CommonModule, HttpClientModule, FormsModule, AppRoutingModule],
   providers: [

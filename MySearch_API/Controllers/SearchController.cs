@@ -20,7 +20,7 @@ namespace MySearch_API.Controllers
         [HttpGet("{searchQuery}/{pageNumber}")]
         public string Get(string searchQuery, int pageNumber)
         {
-            return this._searchService.Test();
+            return this._searchService.Search(searchQuery,pageNumber);
         }
     }
 }

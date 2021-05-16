@@ -1,24 +1,25 @@
 ﻿using MySearch_API.Interfaces;
+using MySearch_API.Interfaces.IUtilityService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace MySearch_API.Services
 {
     public class SearchServices : ISearchService
     {
         private readonly IRequestService _requestService;
+        //private readonly IInputValidationService _inputValidationService;
         public SearchServices(IRequestService requestService){
             _requestService = requestService;
         }
 
-        public string Test()
+        public string Search(string searchQuery, int pageNumber)
         {
             try
             {
-                return this._requestService.GetRequest("http://localhost:8983/solr/techproducts/select?q=*%3A*");
+                if (searchQuery != "undefined")
+                    return this._requestService.ExecuteRequest( this._requestService.BaseSolrQueryURL() + searchQuery);
+                else
+                    return this._requestService.ExecuteRequest(this._requestService.AllResultsSolrQueryURL());
             }catch(Exception ex)
             {
                 var error = ex.Message;

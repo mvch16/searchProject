@@ -16,7 +16,10 @@ export class SearchBarComponent implements OnInit {
   }
 
   search = () => {
-    this.router.navigate(["search", this.querySearch])
+    if (this.querySearch)
+      this.router.navigate(["search", this.querySearch])
+    else
+      this.router.navigate(["search"]);
   }
 
 }

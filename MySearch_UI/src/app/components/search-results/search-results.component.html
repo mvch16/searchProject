@@ -1,5 +1,10 @@
 <app-search-bar></app-search-bar>
-
-<div>
-    <span>Searching: {{querySearch}}</span>
+<span class="total-result">Total Results: {{this.totalResults}}</span>
+<div class="list-result-wrapper">
+  <ul class="list-result">
+    <li class="result-document" *ngFor="let doc of searchResult ">
+      <app-company *ngIf="doc.compName_s" [doc]="doc"></app-company>
+      <app-product *ngIf="doc.name" [doc]="doc"></app-product>
+    </li>
+  </ul>
 </div>
