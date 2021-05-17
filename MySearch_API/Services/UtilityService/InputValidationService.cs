@@ -4,7 +4,7 @@ namespace MySearch_API.Services.UtilityService
 {
     public class InputValidationService : IInputValidationService
     {
-        InputValidationService() {}
+        public InputValidationService() {}
 
         public bool IsQueryValid(string query)
         {

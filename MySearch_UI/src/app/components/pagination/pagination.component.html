@@ -1,0 +1,17 @@
+<div class="pagination-button-container">
+  <button
+    [disabled]="pageNumber < 2"
+    (click)="getPreviousPage()"
+    class="btn btn-outline-primary pagination-button"
+  >
+    Previous
+  </button>
+  <button
+    [disabled]="endItem >= totalItems"
+    (click)="getNextPage()"
+    class="btn btn-outline-primary pagination-button"
+  >
+    Next
+  </button>
+  <span class="span-label">{{startItem}} - {{endItem}} of {{totalItems}} items</span>
+</div>

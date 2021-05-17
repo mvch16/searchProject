@@ -2,6 +2,6 @@
 {
     public interface ISearchService
     {
-        string Search(string searchQuery, int pageNumber);
+        string Search(string searchQuery, int pageNumber, int pageSize);
     }
 }

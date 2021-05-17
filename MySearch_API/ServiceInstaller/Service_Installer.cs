@@ -11,9 +11,11 @@ namespace MySearch_API.ServiceInstaller
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<IInputValidationService, InputValidationService>();
+            services.AddScoped<IPaginationService, PaginationService>();
             services.AddScoped<IRequestService, RequestService>();
             services.AddScoped<ISearchService, SearchServices>();
-            //services.AddScoped<IInputValidationService, InputValidationService>();
+
         }
     }
 }

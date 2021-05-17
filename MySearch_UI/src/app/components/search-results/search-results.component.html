@@ -1,10 +1,16 @@
 <app-search-bar></app-search-bar>
-<span class="total-result">Total Results: {{this.totalResults}}</span>
+<span class="total-result">Total Results: {{ this.totalItems }}</span>
 <div class="list-result-wrapper">
   <ul class="list-result">
-    <li class="result-document" *ngFor="let doc of searchResult ">
+    <li class="result-document" *ngFor="let doc of searchResult">
       <app-company *ngIf="doc.compName_s" [doc]="doc"></app-company>
       <app-product *ngIf="doc.name" [doc]="doc"></app-product>
     </li>
   </ul>
 </div>
+<app-pagination
+  [pageSize]="pageSize"
+  [totalItems]="totalItems"
+  [pageNumber]="pageNumber"
+  (pageChanged)="pageChanged($event)"
+></app-pagination>

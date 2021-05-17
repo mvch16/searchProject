@@ -17,6 +17,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { HomeComponent } from './components/home/home.component';
 import { CompanyComponent } from './components/search-results/company/company.component';
 import { ProductComponent } from './components/search-results/product/product.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductComponent } from './components/search-results/product/product.co
     HomeComponent,
     CompanyComponent,
     ProductComponent,
+    PaginationComponent,
   ],
   imports: [BrowserModule, CommonModule, HttpClientModule, FormsModule, AppRoutingModule],
   providers: [

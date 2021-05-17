@@ -17,10 +17,10 @@ namespace MySearch_API.Controllers
             _searchService = searchService;
         }
 
-        [HttpGet("{searchQuery}/{pageNumber}")]
-        public string Get(string searchQuery, int pageNumber)
+        [HttpGet("{searchQuery}/{pageNumber}/{pageSize}")]
+        public string Get(string searchQuery, int pageNumber, int pageSize)
         {
-            return this._searchService.Search(searchQuery,pageNumber);
+            return this._searchService.Search(searchQuery,pageNumber, pageSize);
         }
     }
 }

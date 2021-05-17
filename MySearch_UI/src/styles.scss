@@ -59,6 +59,7 @@
   }
 
   .content {
+    width: 100%;
     float: left;
     display: flex;
     margin: 82px auto 32px;
@@ -303,4 +304,8 @@
   .more-info{
     display: block;
     font-size: 14px;
+  }
+
+  app-search-results{
+    width: 100%;
   }
